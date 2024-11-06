@@ -12,6 +12,16 @@ def bubble_sort(arr, sorting_order):
     # Get number of elements in the list
     n = len(arr_result)
 
+    if n==0:
+        return 0
+    
+    if n >= 10:
+        return 1
+    
+    for item in arr_result:
+        if isinstance(item, int) == False:
+            return 2
+        
     if n < 10:
         # Traverse through all array elements
         for i in range(n - 1):
@@ -51,6 +61,25 @@ def main():
     print("Sorted array in descending order: ")
     result = bubble_sort(arr, SORT_DESCENDING)
     print(result)
+
+    # Testing of zero array
+    print("Sort an empty list: ")
+    empty_arr = []
+    result = bubble_sort([], SORT_DESCENDING)
+    print(result)
+
+    # Testing of long array
+    print("Sorting too long array: ")
+    long_arr = [64, 34, 25, 12, 22, 11, 90, 4, 66, 34]
+    result = bubble_sort(long_arr, SORT_DESCENDING)
+    print(result)
+
+    # Testing of non-integer array
+    print("Sorting of non-integer array: ")
+    non_int_arr = [64, 34, 25, 12.5, 22, 11]
+    result = bubble_sort(non_int_arr, SORT_DESCENDING)
+    print(result)
+
 
 if __name__ == "__main__":
     main()
